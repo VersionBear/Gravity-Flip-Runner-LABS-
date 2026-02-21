@@ -41,6 +41,10 @@ No frameworks. No bundlers. Just three files.
 
 MIT
 
+## About
+
+This is a VersionBear Labs project — basically experimental stuff and quick builds, not a formal product.
+
 ## Made by
 
 [VersionBear](https://versionbear.itssljk.com)
