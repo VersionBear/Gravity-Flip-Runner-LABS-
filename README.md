@@ -2,11 +2,9 @@
 
 Endless runner where you flip gravity to dodge obstacles. Simple but addictive.
 
-## How to Play
+## Play Now
 
-Press **Space** or **tap** to flip between floor and ceiling. Don't hit the red blocks. Collect orbs for bonus points.
-
-That's basically it.
+[**Play in Browser**](https://gravity-flip-runner.pages.dev)
 
 ## Running Locally
 
