@@ -10,8 +10,8 @@ const W = 840, H = 420;
 const DPR = Math.min(window.devicePixelRatio || 1, isMobile ? 2 : 2);
 
 function sizeCanvas() {
-    canvas.width = W * DPR; canvas.height = H * DPR;
-    canvas.style.width = '100%'; canvas.style.aspectRatio = `${W}/${H}`;
+    canvas.width = W * DPR;
+    canvas.height = H * DPR;
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
 }
 sizeCanvas();
@@ -269,15 +269,20 @@ function handleAction() {
 }
 
 document.addEventListener('keydown', e => { if (['Space', 'ArrowUp', 'ArrowDown', 'KeyW', 'KeyS'].includes(e.code)) { e.preventDefault(); handleAction() } });
+
+// Pointer events for unified mouse/touch handling
 canvas.addEventListener('pointerdown', e => { e.preventDefault(); handleAction() });
 document.getElementById('touch-zone').addEventListener('pointerdown', e => { e.preventDefault(); if (state === 'playing') flipGravity() });
+
+// Touch events for better mobile response
+canvas.addEventListener('touchstart', e => { e.preventDefault(); handleAction() }, { passive: false });
+document.getElementById('touch-zone').addEventListener('touchstart', e => { e.preventDefault(); if (state === 'playing') flipGravity() }, { passive: false });
+
 $('start-btn').addEventListener('click', startGame);
 $('restart-btn').addEventListener('click', startGame);
 $('dismiss-rotate').addEventListener('click', () => { $('rotate-hint').style.display = 'none' });
 
-// Prevent ALL default touch behaviors
-document.addEventListener('touchstart', e => e.preventDefault(), { passive: false });
-document.addEventListener('touchmove', e => e.preventDefault(), { passive: false });
+// Prevent zoom/pinch gestures but allow touch interaction
 document.addEventListener('gesturestart', e => e.preventDefault());
 document.addEventListener('gesturechange', e => e.preventDefault());
 
