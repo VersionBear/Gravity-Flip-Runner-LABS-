@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#06060e" />
+    <title>Gravity Flip Runner</title>
+    <link rel="icon" type="image/png" href="favicon.png " />
+    <meta name="description"
+        content="An addictive endless runner where you flip gravity to dodge obstacles. How far can you go?" />
+    <meta name="author" content="VersionBear" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div id="game-wrapper">
+        <div id="hud">
+            <div class="hud-group">
+                <div class="hud-item" id="score-display">
+                    <div class="label">Distance</div>
+                    <div class="value" id="score-value">0</div>
+                </div>
+                <div class="hud-item" id="combo-display" style="opacity:0">
+                    <div class="label">Combo</div>
+                    <div class="value" id="combo-value">×1</div>
+                </div>
+            </div>
+            <div class="hud-group">
+                <div class="hud-item" id="speed-display">
+                    <div class="label">Speed</div>
+                    <div class="value" id="speed-value">1.0×</div>
+                </div>
+                <div class="hud-item" id="best-display">
+                    <div class="label">Best</div>
+                    <div class="value" id="best-value">0</div>
+                </div>
+            </div>
+        </div>
+        <canvas id="game-canvas"></canvas>
+        <div id="toast-container"></div>
+        <div class="overlay" id="start-overlay">
+            <h1>Gravity Flip Runner</h1>
+            <p class="subtitle">Dodge obstacles · Collect orbs · Flip gravity</p>
+            <button class="btn" id="start-btn">▶ Play</button>
+            <p class="key-hint">Press <kbd>SPACE</kbd> or tap to flip</p>
+        </div>
+        <div class="overlay hidden" id="gameover-overlay">
+            <div class="stats-grid">
+                <div class="stat-card main">
+                    <div class="stat-value" id="final-score">0</div>
+                    <div class="stat-label">Distance</div>
+                    <div class="new-best-badge" id="new-best-badge">🏆 NEW BEST</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="stat-orbs">0</div>
+                    <div class="stat-label">Orbs</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="stat-flips">0</div>
+                    <div class="stat-label">Flips</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="stat-near">0</div>
+                    <div class="stat-label">Near Miss</div>
+                </div>
+            </div>
+            <button class="btn" id="restart-btn">↻ Play Again</button>
+            <p class="key-hint">or press <kbd>SPACE</kbd></p>
+        </div>
+    </div>
+    <div id="touch-zone"></div>
+    <div id="tap-flash"></div>
+    <div id="rotate-hint">
+        <div class="icon">📱</div>Rotate your device to landscape<br>for the best experience<br><button class="btn"
+            style="margin-top:12px;padding:10px 28px;font-size:.85rem" id="dismiss-rotate">Play Anyway</button>
+    </div>
+
+    <footer id="game-footer">
+        <p>Made by <a href="https://versionbear.itssljk.com" target="_blank" rel="noopener">VersionBear</a> ·
+            <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a>
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
