@@ -2,10 +2,6 @@
 
 Endless runner where you flip gravity to dodge obstacles. Simple but addictive.
 
-## Play Now
-
-[**Play in Browser**](https://gravity-flip-runner.pages.dev)
-
 ## Running Locally
 
 Just open `index.html` in your browser. No build step, no dependencies, no nonsense.
